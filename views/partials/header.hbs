@@ -1,0 +1,21 @@
+<header>
+    <!-- <img src="" alt="logo"> -->
+    <div>
+      MEDHELP
+    </div>
+
+    <nav>
+      <ul>
+        {{#if isProfile}}
+          <li><a href="/">На главную</a></li>
+        {{else}}
+          <li><a href="">Для психологов</a></li>
+          <li><a href="">Сотрудничество</a></li>
+          <li><a href="">О нас</a></li>
+          <li><a href="">Блог</a></li>
+          <li><a href="/profile">Вход в личный кабинет</a></li>
+          <li><button>Выбрать специалиста</button></li>
+        {{/if}}
+      </ul>
+    </nav>
+  </header>

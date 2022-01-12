@@ -1,0 +1,104 @@
+html, body {
+  height: 100%;
+  overflow: hidden;
+}
+
+
+:root {
+  --main-text-color: rgb(38, 168, 255);
+}
+
+main {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 100%; height: 100%;
+  background-color: #f0f2f5;
+}
+
+section {
+  position: relative;
+  top: -150px;
+  width: 300px; height: 350px;
+  background-color: white;
+  border-radius: 5px;
+  display: flex;
+  justify-content: center;
+  padding: 40px;
+}
+
+section.auth>form>* {
+  width: 100%;
+  text-align: center;
+}
+
+section.auth>form {
+  display: flex;
+  justify-content: center;
+  flex-wrap: wrap;
+  width: 100%; height: 100%;
+}
+
+section.auth>form h2 {
+  color: var(--main-text-color);
+}
+
+section.auth>form div.inputs {
+  width: 290px;
+  margin-top: 15px;
+}
+
+section.auth>form input {
+  width: 240px; height: 30px;
+  margin: 15px;
+  border: 1px solid #c5c6c7;
+  border-radius: 3px;
+  padding: 5px 7px;
+}
+
+section.auth>form a {
+  text-decoration: none;
+  color: var(--main-text-color);
+}
+
+section.auth>form .button-block {
+  display: flex;
+  justify-content: center;
+  align-items: flex-end;
+}
+
+section.auth>form button {
+  width: 240px; height: 40px;
+  border: 1px solid var(--main-text-color);
+  border-radius: 3px;
+  background-color: var(--main-text-color);
+  color: white;
+  cursor: pointer;
+  margin-bottom: 15px;
+}
+
+section.auth>form button:hover {
+  background-color: #00000000;
+  color: var(--main-text-color);
+}
+
+
+
+section.mess {
+  width: 1000px; height: 600px;
+  padding: 15px;
+}
+
+section.mess>div {
+  width: 100%; height: 100%;
+}
+
+
+
+footer {
+  background-color: #fff;
+  position: absolute;
+  left: 0;
+  bottom: 0;
+  width: 100%;
+}

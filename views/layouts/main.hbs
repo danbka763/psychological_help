@@ -1,0 +1,24 @@
+{{> head}}
+<body>
+  {{> header}}
+
+
+  {{#if isMain}}
+    {{> mainPage}}
+
+    <script src="js/portfolio.js"></script>
+    <script>
+      getData(1)
+    </script>
+  {{/if}}
+
+
+  {{#if isProfile}}
+    {{> profile}}
+  {{/if}}
+
+
+  {{> footer}}
+  
+</body>
+</html>

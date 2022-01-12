@@ -1,0 +1,11 @@
+<main>
+  {{#if isRegistation}}
+    {{> registration}}
+  {{else}} 
+    {{#if isAuth}}
+      {{> authorization}}
+    {{else}}
+      {{> messenger}}
+    {{/if}}
+  {{/if}}
+</main>
