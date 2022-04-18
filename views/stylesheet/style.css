@@ -34,6 +34,34 @@ header>div {
   color: var(--main-text-color);
 }
 
+header>nav.middle,
+header>nav.mobile {
+  display: none;
+}
+
+@media screen and (max-width: 889px) {
+  header {
+    justify-content: space-between;
+    padding: 0 25px;
+  }
+  header>nav.middle {
+    display: block;
+  }
+
+  header>nav.full {
+    display: none;
+  }
+}
+@media screen and (max-width: 551px) {
+  header>nav.mobile {
+    display: block;
+  }
+
+  header>nav.middle {
+    display: none;
+  }
+}
+
 header>nav ul {
   list-style-type: none;
   display: flex;
@@ -94,19 +122,6 @@ main>.right_s .img {
 	line-height: 0;
 }
 
-/* main>.right_s .img::after {
-  content: "";
-	display: block;    
-	width: 100%;
-	height: 100%;    
-	position: absolute;
-	top: 0;      
-	left: 0;   
-	background: transparent;
-	background-image: linear-gradient(to left, #f0f2f5, #00000000);
-	opacity: 1;
-} */
-
 main>.right_s .right_s_content {
   position: relative;
   display: flex;
@@ -114,6 +129,7 @@ main>.right_s .right_s_content {
   width: 700px;
   align-items: center;
   padding-left: 700px;
+  margin: 0 15px;
 }
 
 main>.right_s .right_s_content>div {
@@ -157,6 +173,63 @@ main>.right_s .right_s_content button:hover {
 }
 
 
+@media screen and (max-width: 1111px) {
+  main>.right_s .right_s_backgr {
+    left: -500px;
+  }
+
+  main>.right_s .right_s_content{ 
+    padding-left: 550px;
+  }
+}
+@media screen and (max-width: 961px) {
+  main>.right_s .right_s_content h1 {
+    font-size: 30px;
+  }
+}
+@media screen and (max-width: 932px) {
+  main>.right_s .img::after {
+    content: "";
+  	display: block;    
+  	width: 100%;
+  	height: 100%;    
+  	position: absolute;
+  	top: 0;      
+  	left: 0;   
+  	background: transparent;
+  	background-image: linear-gradient(to left, #f0f2f5, #00000000);
+  	opacity: 1;
+  }
+
+  main>.right_s .right_s_content{ 
+    padding-left: 150px;
+  }
+}
+@media screen and (max-width: 551px) {
+  main>.right_s .right_s_backgr  {
+    display: none;
+  }
+
+  main>.right_s .right_s_content{ 
+    padding-left: 0px;
+    text-align: center;
+  }
+  
+  main>.right_s .right_s_content h1,
+  main>.right_s .right_s_content p {
+    text-align: center;
+  }
+
+  main>.right_s {
+    height: 450px;
+  }
+
+  main>.right_s .right_s_content>div {
+    justify-content: center;
+  }
+}
+
+
 
 /* Left text in section */
 
@@ -190,6 +263,7 @@ main>.left_s .left_s_content {
   width: 700px;
   align-items: center;
   padding-right: 700px;
+  margin: 0 15px;
 }
 
 main>.left_s .left_s_content>div {
@@ -231,6 +305,13 @@ main>.left_s .left_s_content a:hover {
 }
 
 
+@media screen and (max-width: 1470px) {
+  main>.left_s {
+    display: none;
+  }
+}
+
+
 
 /* Article blocks */
 
@@ -255,6 +336,31 @@ main>#a0 .content_a0>div>div {
 main>#a0 .content_a0>div>p {
   color: #a2adb8;
   font-size: 18px;
+}
+
+
+@media screen and (max-width: 961px) {
+  main>#a0 .content_a0>div>div {
+    font-size: 18px;
+  }
+
+  main>#a0 .content_a0>div>p {
+    font-size: 16px;
+  }
+}
+@media screen and (max-width: 524px) {
+  main>#a0 .content_a0>div>div {
+    font-size: 16px;
+  }
+
+  main>#a0 .content_a0>div>p {
+    font-size: 14px;
+  }
+}
+@media screen and (max-width: 453px) {
+  main>#a0 .content_a0>div:nth-child(1) {
+    display: none;
+  }
 }
 
 
@@ -349,9 +455,99 @@ main>#a1 .content_a1 span.line {
 }
 
 
+@media screen and (max-width: 1465px) {
+  main>#a1 .content_a1 .portfolio span {
+    display: none;
+  }
+  main>#a1 .content_a1 .portfolio {
+    display: flex;
+    justify-content: center;
+  }
+  main>#a1 .content_a1 .portfolio .content {
+    max-width: 500px;
+  }
+  main>#a1 .content_a1 .portfolio .photo img {
+    width: 420px;
+  }
+}
+@media screen and (max-width: 999px) {
+  main>#a1 .content_a1 .portfolio .content {
+    max-width: 350px;
+  }
+  main>#a1 .content_a1 .portfolio .photo img {
+    width: 320px;
+  }
+  main>#a1 .content_a1 .portfolio .content h3 {
+    font-size: 20px;
+  }
+  main>#a1 .content_a1 .portfolio .content p {
+    font-size: 13px;
+  }
+}
+@media screen and (max-width: 936px) {
+  main>#a1 .content_a1 span.line {
+    width: 600px;
+  }
+  main>#a1 .content_a1 .psychologists .psychologist img{
+    height: 60px;
+  }
+}
+@media screen and (max-width: 723px) {
+  main>#a1 .content_a1 .portfolio {
+    flex-direction: column;
+    align-items: center;
+    margin: 40px 0 0;
+  }
+  main>#a1 .content_a1 .portfolio .content {
+    max-width: 100%;
+    margin: 0;
+  }
+  main>#a1 .content_a1 .portfolio .content h3 {
+    text-align: center;
+  }
+  main>#a1 .content_a1 .portfolio .content p {
+    padding: 0 15px;
+    text-align: center;
+  }
+}
+@media screen and (max-width: 645px) {
+  main>#a1 .content_a1 span.line {
+    width: 340px;
+  }
+}
+@media screen and (max-width: 435px) {
+  main>#a1 .content_a1 .psychologists .psychologist p {
+    font-size: 14px;
+  }
+  main>#a1 .content_a1 .psychologists .psychologist img{
+    height: 40px;
+  }
+  main>#a1 .content_a1>h2 {
+    font-size: 28px;
+  }
+}
+
+
 
 main>#s2 {
   background-color: white;
+}
+
+
+@media screen and (max-width: 932px) {
+  main>#s2 {
+    background-color: #f0f2f5;
+  }
+}
+@media screen and (max-width: 551px) {
+  main>.right_s .right_s_content h2 {
+    text-align: center;
+  }
+}
+@media screen and (max-width: 961px) {
+  main>.right_s .right_s_content h2 {
+    font-size: 28px;
+  }
 }
 
 
@@ -361,7 +557,7 @@ footer {
   display: flex;
   justify-content: center;
   align-items: center;
-  padding: 40px 0;
+  padding: 40px 25px;
   background-color: #f0f2f5;
 }
 
@@ -395,4 +591,45 @@ footer .content a {
 
 footer .content p {
   color: #a2adb8;
+}
+
+
+@media screen and (max-width: 1095px) {
+  footer .content p {
+    max-width: 150px;
+  }
+  footer .logo_footer {
+    margin-right: 25px;
+  }
+}
+@media screen and (max-width: 850px) {
+  footer {
+    flex-direction: column;
+  }
+  footer .content { 
+    width: 100%;
+    margin-top: 30px;
+  }
+  footer .logo_footer {
+    margin: 0;
+  }
+}
+@media screen and (max-width: 700px) {
+  footer .content { 
+    flex-wrap: wrap;
+    /* justify-content: flex-start; */
+  }
+  footer .content>div {
+    margin: 25px;
+    width: 150px;
+  }
+}
+@media screen and (max-width: 450px) {
+  footer .content>div {
+    width: 100%;
+    margin: 15px 20px;
+  }
+  footer .content p {
+    max-width: 100%;
+  }
 }

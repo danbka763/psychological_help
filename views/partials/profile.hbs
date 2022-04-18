@@ -5,7 +5,12 @@
     {{#if isAuth}}
       {{> authorization}}
     {{else}}
-      {{> messenger}}
+      {{#if isProfile}}
+        {{> messenger}}
+      {{/if}}
+      {{#if isReception}}
+        {{> reception}}
+      {{/if}}
     {{/if}}
   {{/if}}
 </main>

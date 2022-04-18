@@ -73,6 +73,53 @@ class authController {
 
     return res.redirect('/profile')
   }
+
+  
+
+  async editData(req, res) {
+    const {first_name, last_name, email, phone, birth} = req.body
+
+    let login
+
+    jwt.verify(req.cookies.token, secret, (err, decoded) => {
+      login = decoded.login
+    })
+
+    console.log(req.body, login, "editData")
+
+    let data = {}
+    if (first_name) data.first_name = first_name
+    if (first_name) data.last_name = last_name
+    if (email) data.email = email
+    if (phone) data.phone = phone
+    if (birth) data.birth = birth
+
+    await reg.updateOne({login: login}, {$set: data})
+
+    return res.redirect('/profile')
+  }
+
+
+  async reception(req, res) {
+    let login
+
+    jwt.verify(req.cookies.token, secret, (err, decoded) => {
+      login = decoded.login
+    })
+
+    console.log(req.body, login, 'reception')
+
+    await reg.updateOne({login: login}, {$push: {dates: req.body}})
+
+    return res.redirect('/profile')
+  }
+
+
+  async getData(login) {
+    const user = await reg.findOne({login})
+    
+    return user
+  }
 }
 
 

@@ -3,7 +3,25 @@ const {Schema, model} = require('mongoose')
 const schema = new Schema({
   login: {type: String, unique: true, required: true},
   password: {type: String, required: true},
-  // message: [{type: String, ref: 'message'}]
+  first_name: {type: String},
+  last_name: {type: String},
+  email: {type: String},
+  phone: {type: String},
+  birth: {type: String},
+  dates: [{type: Object}]
 })
 
 module.exports = model("dataUsers", schema)
+
+// const Pool = require('pg').Pool
+
+// const pool = new Pool({
+//   user: "postgres",
+//   password: "danbkadanbka",
+//   host: "localhost",
+//   port: 5432,
+//   database: "psychological_help"
+// })
+
+
+// module.exports = pool

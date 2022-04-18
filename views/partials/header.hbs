@@ -4,17 +4,48 @@
       MEDHELP
     </div>
 
-    <nav>
+    <nav class="full">
       <ul>
+        {{#if isReception}}
+          <li><a href="/profile">Назад</a></li>
+        {{/if}}
         {{#if isProfile}}
           <li><a href="/">На главную</a></li>
-        {{else}}
+        {{/if}}
+        {{#if isMain}}
           <li><a href="">Для психологов</a></li>
           <li><a href="">Сотрудничество</a></li>
           <li><a href="">О нас</a></li>
           <li><a href="">Блог</a></li>
           <li><a href="/profile">Вход в личный кабинет</a></li>
           <li><button>Выбрать специалиста</button></li>
+        {{/if}}
+      </ul>
+    </nav>
+    <nav class="middle">
+      <ul>
+        {{#if isReception}}
+          <li><a href="/profile">Назад</a></li>
+        {{/if}}
+        {{#if isProfile}}
+          <li><a href="/">На главную</a></li>
+        {{/if}}
+        {{#if isMain}}
+          <li><a href="/profile">Вход</a></li>
+          <li><button>Выбрать специалиста</button></li>
+        {{/if}}
+      </ul>
+    </nav>
+    <nav class="mobile">
+      <ul>
+        {{#if isReception}}
+          <li><a href="/profile">Назад</a></li>
+        {{/if}}
+        {{#if isProfile}}
+          <li><a href="/">На главную</a></li>
+        {{/if}}
+        {{#if isMain}}
+          <li><a href="/profile">Вход</a></li>
         {{/if}}
       </ul>
     </nav>
