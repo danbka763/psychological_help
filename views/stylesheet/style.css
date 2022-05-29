@@ -77,7 +77,7 @@ header>nav ul a {
   color: black;
 }
 
-header>nav ul button {
+header>nav ul .button {
   cursor: pointer;
   padding: 5px 13px;
   border: 1px solid var(--main-text-color);
@@ -86,7 +86,7 @@ header>nav ul button {
   color: white;
 }
 
-header>nav ul button:hover {
+header>nav ul .button:hover {
   background-color: #00000000;
   color: var(--main-text-color);
 }
@@ -631,5 +631,185 @@ footer .content p {
   }
   footer .content p {
     max-width: 100%;
+  }
+}
+
+
+
+.choose {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  border-bottom: 1px solid #dfdfdf;
+  /* background-color: #f0f2f5; */
+}
+
+.choose>div {
+  width: 1400px;
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  margin: 20px 0;
+}
+
+.choose h2 {
+  font-size: 32px;
+  color: var(--main-text-color);
+  margin: 35px 0;
+}
+
+.choose .psychologists {
+  display: flex;
+  justify-content: space-evenly;
+  width: 100%;
+}
+
+.choose .psychologists .psychologist {
+  text-align: center;  
+  cursor: pointer;
+  margin: 10px;
+}
+
+.choose .psychologists .psychologist.active {
+  cursor: unset;
+}
+
+.choose .psychologists .psychologist img {
+  height: 120px;
+  border-radius: 50%;
+  border: 3px solid #f0f2f5;
+}
+
+.choose .psychologists .psychologist p {
+  font-size: 18px;
+}
+
+.choose .psychologists .psychologist.active p {
+  font-size: 18px;
+  color: var(--main-text-color);
+  font-weight: 900;
+}
+
+.choose .psychologists .psychologist.active img {
+  border: 3px solid var(--main-text-color);
+}
+
+.choose .portfolio {
+  width: 100%;
+  display: grid;
+  grid-template-columns: 30% 40% 30%;
+  margin: 60px 0 30px;
+}
+
+.choose .portfolio .photo img {
+  width: 100%;
+  border-radius: 25px;
+}
+
+.choose .portfolio .content {
+  margin-right: 25px;
+}
+
+.choose .portfolio .content h3 {
+  font-size: 24px;
+  margin: 15px 0;
+  color: var(--main-text-color);
+}
+
+.choose .portfolio .content p {
+  margin-bottom: 7px;
+  text-indent: 1.7em;
+  text-align: justify;
+}
+
+.choose span.line {
+  width: 900px;
+  margin-top: 60px;
+  border-bottom: 2px solid #dfdfdf;
+}
+
+.choose button {
+  cursor: pointer;
+  padding: 5px 13px;
+  border: 1px solid var(--main-text-color);
+  border-radius: 3px;
+  background-color: var(--main-text-color);
+  color: white;
+  margin-bottom: 30px;
+}
+
+.choose select {
+  display: none;
+}
+
+@media screen and (max-width: 1465px) {
+  .choose  .portfolio span {
+    display: none;
+  }
+  .choose  .portfolio {
+    display: flex;
+    justify-content: center;
+  }
+  .choose  .portfolio .content {
+    max-width: 500px;
+  }
+  .choose  .portfolio .photo img {
+    width: 420px;
+  }
+}
+@media screen and (max-width: 999px) {
+  .choose  .portfolio .content {
+    max-width: 350px;
+  }
+  .choose  .portfolio .photo img {
+    width: 320px;
+  }
+  .choose  .portfolio .content h3 {
+    font-size: 20px;
+  }
+  .choose  .portfolio .content p {
+    font-size: 13px;
+  }
+}
+@media screen and (max-width: 936px) {
+  .choose  span.line {
+    width: 600px;
+  }
+  .choose  .psychologists .psychologist img{
+    height: 60px;
+  }
+}
+@media screen and (max-width: 723px) {
+  .choose  .portfolio {
+    flex-direction: column;
+    align-items: center;
+    margin: 40px 0 0;
+  }
+  .choose  .portfolio .content {
+    max-width: 100%;
+    margin: 0;
+  }
+  .choose  .portfolio .content h3 {
+    text-align: center;
+  }
+  .choose  .portfolio .content p {
+    padding: 0 15px;
+    text-align: center;
+  }
+}
+@media screen and (max-width: 645px) {
+  .choose  span.line {
+    width: 340px;
+  }
+}
+@media screen and (max-width: 435px) {
+  .choose  .psychologists .psychologist p {
+    font-size: 14px;
+  }
+  .choose  .psychologists .psychologist img{
+    height: 40px;
+  }
+  .choose h2 {
+    font-size: 28px;
   }
 }

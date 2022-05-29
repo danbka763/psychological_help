@@ -9,16 +9,24 @@
         {{#if isReception}}
           <li><a href="/profile">Назад</a></li>
         {{/if}}
+        {{#if isCalendar}}
+          <li><a href="/profile">Назад</a></li>
+        {{/if}}
+        {{#if isMess}}
+          <li><a href="/profile">Назад</a></li>
+        {{/if}}
+        {{#if isChoose}}
+          <li><a href="/profile">Назад</a></li>
+        {{/if}}
         {{#if isProfile}}
           <li><a href="/">На главную</a></li>
         {{/if}}
         {{#if isMain}}
           <li><a href="">Для психологов</a></li>
           <li><a href="">Сотрудничество</a></li>
-          <li><a href="">О нас</a></li>
-          <li><a href="">Блог</a></li>
-          <li><a href="/profile">Вход в личный кабинет</a></li>
-          <li><button>Выбрать специалиста</button></li>
+          <li><a href="#s2">О нас</a></li>
+          <li><a href="#a1">Выбрать специалиста</a></li>
+          <li><a class="button" href="/profile">Вход в личный кабинет</a></li>
         {{/if}}
       </ul>
     </nav>
@@ -27,12 +35,18 @@
         {{#if isReception}}
           <li><a href="/profile">Назад</a></li>
         {{/if}}
+        {{#if isChoose}}
+          <li><a href="/profile">Назад</a></li>
+        {{/if}}
         {{#if isProfile}}
           <li><a href="/">На главную</a></li>
         {{/if}}
+        {{#if isMess}}
+          <li><a href="/profile">Назад</a></li>
+        {{/if}}
         {{#if isMain}}
-          <li><a href="/profile">Вход</a></li>
-          <li><button>Выбрать специалиста</button></li>
+          <li><a href="#a1">Выбрать специалиста</a></li>
+          <li><a class="button" href="/profile">Вход</a></li>
         {{/if}}
       </ul>
     </nav>
@@ -41,11 +55,20 @@
         {{#if isReception}}
           <li><a href="/profile">Назад</a></li>
         {{/if}}
+        {{#if isCalendar}}
+          <li><a href="/profile">Назад</a></li>
+        {{/if}}
+        {{#if isMess}}
+          <li><a href="/profile">Назад</a></li>
+        {{/if}}
+        {{#if isChoose}}
+          <li><a href="/profile">Назад</a></li>
+        {{/if}}
         {{#if isProfile}}
           <li><a href="/">На главную</a></li>
         {{/if}}
         {{#if isMain}}
-          <li><a href="/profile">Вход</a></li>
+          <li><a class="button" href="/profile">Вход</a></li>
         {{/if}}
       </ul>
     </nav>

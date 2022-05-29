@@ -46,6 +46,9 @@ function getData(id) {
     text += "<p>" + person.text[p] + "</p>"
   }
 
+  if (document.getElementById("option"))
+    document.getElementById("option").value = getDataPost(id)
+
   document.getElementById("portfolio").innerHTML = 
     `
     <span></span>
@@ -66,4 +69,8 @@ function getData(id) {
   }
 
   document.getElementById("psychologist_"+id).classList.add("active")
+}
+
+function getDataPost(id) {
+  return data[id-1].fullname
 }

@@ -13,14 +13,23 @@
   {{/if}}
 
 
-  {{#if isProfile}}
-    {{> profile}}
-  {{/if}}
-  {{#if isReception}}
+  {{#if isProfilePages}}
     {{> profile}}
   {{/if}}
 
+  {{#if isChoose}}
+    {{> choose_psy}}
+
+    <script src="js/portfolio.js"></script>
+    <script>
+      getData(1, true)
+    </script>
+  {{/if}}
+
   {{#if isMain}}
+    {{> footer}}
+  {{/if}}
+  {{#if isChoose}}
     {{> footer}}
   {{/if}}
 </body>

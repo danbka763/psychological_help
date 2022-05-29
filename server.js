@@ -1,10 +1,12 @@
 const express = require('express');
 const app = express();
 const http = require('http').Server(app);
+
 const mongoose = require('mongoose');
+
 const cookieParser = require('cookie-parser');
 
-const PORT = process.env.PORT || 3000 // Порт, если не указан в pacage.json - ставим 3000
+const PORT = process.env.PORT || 3000 // Порт, если не указан в package.json - ставим 3000
 
 const loginDB = "danbka",
       passDB = "OuqZ0rFSiKl7qB4E"; // Логин и пароль от MangoDB

@@ -28,6 +28,12 @@ section {
   padding: 40px;
 }
 
+section.auth {
+  padding: 25px;
+  width: 270px;
+  background-color: white;
+}
+
 section.auth>form>* {
   width: 100%;
   text-align: center;
@@ -84,55 +90,58 @@ section.auth>form button:hover {
 }
 
 
-section.mess {
+section.profile {
   width: 1000px; height: 600px;
   padding: 15px;
+  background-color: #00000000;
+  display: flex;
+  justify-content: center;
 }
 
 
-section.mess .container {
+section.profile .container {
   margin-top: 15px;
   margin-right: 25px;
 }
 
-section.mess .content {
+section.profile .content {
   display: flex;
   justify-content: space-between;
 }
 
-section.mess .container .dataUser {
+section.profile .container .dataUser {
   width: 290px;
 }
 
-section.mess .container .dataUser>div {
+section.profile .container .dataUser>div {
   margin-bottom: 10px;
 }
 
-section.mess .container .dataUser>div>div {
+section.profile .container .dataUser>div>div {
   display: flex;
   justify-content: space-between;
   margin-bottom: 3px;
 }
 
-section.mess .container .dataUser input {
+section.profile .container .dataUser input {
   border: 1px solid #00000015;
   border-radius: 3px;
   color: #00000065;
   padding: 2px 3px;
 }
 
-section.mess .container .dataUser input[type=date] {
+section.profile .container .dataUser input[type=date] {
   width: 169px;
 }
 
-section.mess .container .dataUser div.button {
+section.profile .container .dataUser div.button {
   display: flex;
   justify-content: flex-end;
   width: 100%;
   margin-top: 20px;
 }
 
-section.mess .container .dataUser button {
+section.profile .container .dataUser button {
   cursor: pointer;
   padding: 5px 13px;
   border: 1px solid rgb(38, 168, 255);
@@ -143,27 +152,65 @@ section.mess .container .dataUser button {
 
 
 @media screen and (max-width: 1075px) {
-  section.mess {
+  section.profile {
     width: 100%;
     margin: 0 25px 0;
   }
 }
 
-section.mess>div {
-  width: 100%; height: 100%;
+section {
+  background-color: #00000000;
+  width: auto;
+  height: 370px;
+  padding: 0;
+  margin: 0;
+}
+
+section>div {
+  /* width: 100%; height: 100%; */
+  background-color: white;
+  border-radius: 5px;
+  padding: 15px;
+  margin-right: 25px;
+}
+
+section.profile>aside {
+  width: auto;
+}
+section>aside {
+  /* width: 100%; height: 100%; */
+  background-color: white;
+  width: 350px;
+  border-radius: 5px;
+  padding: 15px 0;
+  margin-right: 25px;
+}
+
+section>aside>a {
+  text-decoration: none;
+  padding: 15px 25px;
+  display: block;
+  cursor: pointer;
+  color: black;
+}
+
+section>aside>a.active {
+  background-color: rgb(38, 168, 255);
+  color: white;
+  font-weight: 600;
 }
 
 
-section.mess .calendar-form {
+section.calendar .calendar-form {
   width: 100%;
 }
-section.mess .calendar-form>div {
+section.calendar .calendar-form>div {
   display: flex;
   justify-content: space-between;
   flex-wrap: wrap-reverse;
 }
 
-section.mess .calendar-form>div a {
+section.calendar .calendar-form>div a {
   cursor: pointer;
   padding: 5px 13px;
   border: 1px solid var(--main-text-color);
@@ -173,42 +220,71 @@ section.mess .calendar-form>div a {
   text-decoration: none;
 }
 
-section.mess .calendar-form>div a:hover {
+section.calendar .calendar-form>div a:hover {
   background-color: #00000000;
   color: var(--main-text-color);
 }
 
 
-#calendar {
+section.calendar {
+  width: 800px;
+  justify-content: flex-start;
+}
+section.calendar>div {
+  width: 100%;
+}
+section.calendar>div a {
+  text-decoration: none;
+  cursor: pointer;
+  padding: 5px 13px;
+  border: 1px solid var(--main-text-color);
+  border-radius: 3px;
+  background-color: var(--main-text-color);
+  color: white;
+}
+
+section.calendar>div .psy_info {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+section.calendar>div a:hover {
+  background-color: #00000000;
+  color: var(--main-text-color);
+}
+
+section.calendar  #calendar {
   width: 100%;
   font: monospace;
   line-height: 1.2em;
   font-size: 15px;
   text-align: center;
+  margin: 35px 0;
 }
-#calendar thead tr:last-child {
+section.calendar  #calendar thead tr:last-child {
   font-size: small;
   color: rgb(85, 85, 85);
 }
-#calendar tbody td {
+section.calendar  #calendar tbody td {
   color: rgb(44, 86, 122);
   cursor: pointer;
   border: 1px solid #00000000;
 }
-#calendar tbody td:hover {
+section.calendar  #calendar tbody td:hover {
   border: 1px solid #00000015;
 }
-#calendar tbody .no-border:hover {
+section.calendar  #calendar tbody .no-border:hover {
   cursor: default;
   border: 1px solid #00000000;
 }
-#calendar tbody td:nth-child(n+6) {
+section.calendar  #calendar tbody td:nth-child(n+6) {
   color: rgb(231, 140, 92);
 }
-#calendar .cons {
+section.calendar  #calendar .cons {
   color: rgb(38, 168, 255);
 }
-#calendar tbody td.today {
+section.calendar  #calendar tbody td.today {
   color: rgb(0, 172, 43);
 }
 
@@ -217,4 +293,89 @@ section.mess .calendar-form>div a:hover {
 section.rec {
   width: 400px; height: 600px;
   padding: 15px;
+}
+
+section.mess {
+  height: 650px;
+
+}
+
+section.mess .container {
+  width: 700px;
+  height: 90%;
+  background-color: #f1f1f1;
+  border-top-left-radius: 5px;
+  border-top-right-radius: 5px;
+  overflow-y: scroll;
+}
+
+section.mess .container .output {
+  width: 100%;
+  display: flex;
+  justify-content: flex-end;
+}
+
+section.mess .container .output>div {
+  margin: 25px 25px 0 150px;
+  text-align: right;
+  background-color: white;
+  padding: 5px 10px 5px 25px;
+  border-radius: 5px;
+  border-bottom-right-radius: 0;
+}
+
+section.mess .container .output>div .name {
+  color:rgb(38, 168, 255);
+}
+
+section.mess .container .input {
+  width: 100%;
+  display: flex;
+  justify-content: flex-start;
+}
+
+section.mess .container .input>div {
+  margin: 25px 150px 0 25px;
+  text-align: left;
+  background-color: white;
+  padding: 5px 25px 5px 10px;
+  border-radius: 5px;
+  border-bottom-left-radius: 0;
+}
+
+section.mess .container .input>div .name {
+  color:rgb(38, 168, 255);
+}
+
+section.mess h1>span {
+  color: var(--main-text-color);
+}
+
+section.mess .placeSendMessage {
+  width: 100%;
+}
+
+section.mess .placeSendMessage>div {
+  display: flex;
+  flex-wrap: nowrap;
+}
+
+section.mess .placeSendMessage input {
+  width: 78%;
+  height: 30px;
+  padding: 0 1%;
+  border-radius: 0;
+  border: 1px solid #f1f1f1;
+  margin: 0;
+  border-bottom-left-radius: 3px;
+}
+
+section.mess .placeSendMessage button {
+  width: 20%;
+  cursor: pointer;
+  padding: 5px 13px;
+  border: 1px solid rgb(38, 168, 255);
+  background-color: rgb(38, 168, 255);
+  border-bottom-right-radius: 3px;
+  color: white;
 }

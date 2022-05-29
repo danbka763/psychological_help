@@ -1,0 +1,16 @@
+<script type="text/javascript" src="https://js.stripe.com/v2/"></script>
+<script type="text/javascript">
+  Stripe.setPublishableKey('pk_test_51L1kgHHJmkGyRSNKLHtZYxFtCD4XTMNZ3IewXjrRQ1VBtVIzZ0c1TyX4ENPOgXLDR2ebkgoWvW9gZtKHc8aWVUxb00lhEmhIfS');
+</script>
+
+<form action="" method="POST" id="payment-form">
+    <span class="payment-errors"></span>
+    <label>Card Number</label>
+    <input type="text" size="20" data-stripe="number">
+    <label>Expiration (MM/YY)</label>     
+    <input type="text" size="2" data-stripe="exp_month">
+    <input type="text" size="2" data-stripe="exp_year">
+    <label>CVC</label>
+    <input type="text" size="4" data-stripe="cvc">
+    <input type="submit" class="submit" value="Submit">
+</form>

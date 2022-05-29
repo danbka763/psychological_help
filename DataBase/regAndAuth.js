@@ -8,7 +8,9 @@ const schema = new Schema({
   email: {type: String},
   phone: {type: String},
   birth: {type: String},
-  dates: [{type: Object}]
+  dates: [{type: Object}],
+  mess: [{type: Object}],
+  psy: {type: String}
 })
 
 module.exports = model("dataUsers", schema)

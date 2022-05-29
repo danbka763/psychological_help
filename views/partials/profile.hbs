@@ -6,10 +6,19 @@
       {{> authorization}}
     {{else}}
       {{#if isProfile}}
-        {{> messenger}}
+        {{> profilePage}}
       {{/if}}
       {{#if isReception}}
         {{> reception}}
+      {{/if}}
+      {{#if isCalendar}}
+        {{> calendar}}
+      {{/if}}
+      {{#if isMess}}
+        {{> messenger}}
+      {{/if}}
+      {{#if isPayment}}
+        {{> payment}}
       {{/if}}
     {{/if}}
   {{/if}}

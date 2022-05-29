@@ -109,7 +109,9 @@ class authController {
 
     console.log(req.body, login, 'reception')
 
-    await reg.updateOne({login: login}, {$push: {dates: req.body}})
+    const user = await reg.findOne({login})
+
+    await reg.updateOne({login: login}, {$push: {dates: {...req.body, psy: user.psy}}})
 
     return res.redirect('/profile')
   }
@@ -119,6 +121,20 @@ class authController {
     const user = await reg.findOne({login})
     
     return user
+  }
+
+  async choose_psy(req, res) {
+    let login 
+
+    jwt.verify(req.cookies.token, secret, (err, decoded) => {
+      login = decoded.login
+    })
+
+    console.log(req.body.psy, login, 'choose')
+
+    await reg.updateOne({login: login}, {$set: {psy: req.body.psy}})
+
+    return res.redirect('/profile')
   }
 }
 

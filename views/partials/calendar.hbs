@@ -1,0 +1,109 @@
+<section id="calendar" class="calendar">
+  <div>
+    <h1>Календарь</h1>
+    {{#if psy}}
+      <div class="psy_info">
+        Ваш специалист {{psy}} 
+        <a href="/choose_psy">Выбрать другого специалиста</a>
+      </div>
+    {{else}}
+      Вы не выбрали специалиста <br>
+      <a href="/choose_psy">Выбрать специалиста</a>
+    {{/if}}
+    <div class="calendar-form">
+      <table id="calendar">
+        <thead>
+          <tr><td colspan="4"><select>
+            <option value="0">Январь</option>
+            <option value="1">Февраль</option>
+            <option value="2">Март</option>
+            <option value="3">Апрель</option>
+            <option value="4">Май</option>
+            <option value="5">Июнь</option>
+            <option value="6">Июль</option>
+            <option value="7">Август</option>
+            <option value="8">Сентябрь</option>
+            <option value="9">Октябрь</option>
+            <option value="10">Ноябрь</option>
+            <option value="11">Декабрь</option>
+            </select><td colspan="3"><input type="number" value="" min="0" max="9999" size="4">
+            <tr><td>Пн<td>Вт<td>Ср<td>Чт<td>Пт<td>Сб<td>Вс
+          <tbody>
+      </table>
+
+      <div>
+        <div id="event"></div>
+      </div>
+    </div>
+  </div>
+  {{> asideProfile}}
+</section>
+
+
+
+<script>
+  function clickDate(text, time, psy) {
+    const date = new Date(text)
+
+    const month = ["января", "февраля", "марта", "апреля", "мая", "июня", "июля", "августа", "сентября", "октября", "ноября", "декабря"]
+
+    document.getElementById("event").innerHTML = 
+      `${date.getDate()} ${month[date.getMonth()]} ${date.getFullYear()}
+      <br>
+      ${time ? ("В этот день у вас занятие в " + time + " c " + psy) : "В этот день у вас нет запланированных занятий" }` 
+  }
+
+  function calendar(id, year, month) {
+    const dates = JSON.parse(`{{dates}}`.replace(/&quot;/g,'"'))
+
+    var Dlast = new Date(year,month+1,0).getDate(),
+        D = new Date(year,month,Dlast),
+        DNlast = D.getDay(),
+        DNfirst = new Date(D.getFullYear(),D.getMonth(),1).getDay(),
+        calendar = '<tr>',
+        m = document.querySelector('#'+id+' option[value="' + D.getMonth() + '"]'),
+        g = document.querySelector('#'+id+' input');
+    if (DNfirst != 0) {
+      for(var  i = 1; i < DNfirst; i++) calendar += '<td class="no-border">';
+    }else{
+      for(var  i = 0; i < 6; i++) calendar += '<td class="no-border">';
+    }
+    for(var  i = 1; i <= Dlast; i++) {
+      if (i == new Date().getDate() && D.getFullYear() == new Date().getFullYear() && D.getMonth() == new Date().getMonth()) {
+        calendar += `<td class="today" onclick="clickDate('${D.getFullYear()}-${D.getMonth()+1 > 9 ? D.getMonth()+1 : "0"+(D.getMonth()+1)}-${i > 9 ? i : "0"+(i)}')">` + i;
+      }else{
+        let b = false
+
+        for (let date of dates) {
+          const d = new Date(date.date)
+          if (i === d.getDate() && D.getFullYear() === d.getFullYear() && D.getMonth() === d.getMonth()) {
+            calendar += `<td class="cons" onclick="clickDate('${D.getFullYear()}-${D.getMonth()+1 > 9 ? D.getMonth()+1 : "0"+(D.getMonth()+1)}-${i > 9 ? i : "0"+(i)}', '${date.time}', '${date.psy}')">` + i;
+            b = true
+            break
+          }
+        }
+
+        if (!b) {
+          calendar += `<td onclick="clickDate('${D.getFullYear()}-${D.getMonth()+1 > 9 ? D.getMonth()+1 : "0"+(D.getMonth()+1)}-${i > 9 ? i : "0"+(i)}')">` + i;
+        }
+      }
+      if (new Date(D.getFullYear(),D.getMonth(),i).getDay() == 0) {
+        calendar += '<tr>';
+      }
+    }
+    for(var  i = DNlast; i < 7; i++) calendar += '<td class="no-border">&nbsp;';
+    document.querySelector('#'+id+' tbody').innerHTML = calendar;
+    g.value = D.getFullYear();
+    m.selected = true;
+    if (document.querySelectorAll('#'+id+' tbody tr').length < 6) {
+        document.querySelector('#'+id+' tbody').innerHTML += '<tr><td class="no-border">&nbsp;<td class="no-border">&nbsp;<td class="no-border">&nbsp;<td class="no-border">&nbsp;<td class="no-border">&nbsp;<td class="no-border">&nbsp;<td class="no-border">&nbsp;';
+    }
+    document.querySelector('#'+id+' option[value="' + new Date().getMonth() + '"]').style.color = 'rgb(220, 0, 0)'; // в выпадающем списке выделен текущий месяц
+  }
+
+  calendar("calendar",new Date().getFullYear(),new Date().getMonth());
+
+  document.querySelector('#calendar').onchange = function Kalendar() {
+    calendar("calendar",document.querySelector('#calendar input').value,parseFloat(document.querySelector('#calendar select').options[document.querySelector('#calendar select').selectedIndex].value));
+  }
+</script>

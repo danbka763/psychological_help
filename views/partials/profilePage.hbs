@@ -1,0 +1,26 @@
+<section id="profile" class="profile">
+  <div>
+    <h1>Личный кабинет</h1>
+    <div class="content">
+      <form action="/profile" method="POST" class="container">
+        <div class="dataUser">
+          <div>
+            <div><p>Имя:</p> <input type="text" name="first_name" value={{first_name}}> </div>
+            <div><p>Фамилия:</p> <input type="text" name="last_name" value={{last_name}}> </div>
+          </div>
+          <div>
+            <div><p>Логин:</p> <input disabled type="text" name="login" value={{login}}> </div>
+            <div><p>Почта:</p> <input type="text" name="email" value={{email}}> </div>
+            <div><p>Телефон:</p> <input type="text" name="phone" value={{phone}}> </div>
+            <div><p>Дата рождения:</p> <input type="date" name="birth" value={{birth}}> </div>
+          </div>
+          <div class="button">
+            <button type="submit">Редактировать</button>
+          </div>
+        </div>
+      </form>
+    </div>
+
+  </div>
+  {{> asideProfile}}
+</section>

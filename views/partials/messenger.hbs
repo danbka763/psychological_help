@@ -1,116 +1,26 @@
-<section id="mess" class="mess">
+<section class="mess">
   <div>
-    <h1>Личный кабинет</h1>
-    <div class="content">
-      <form action="/profile" method="POST" class="container">
-        <div class="dataUser">
-          <div>
-            <div><p>Имя:</p> <input type="text" name="first_name" value={{first_name}}> </div>
-            <div><p>Фамилия:</p> <input type="text" name="last_name" value={{last_name}}> </div>
-          </div>
-          <div>
-            <div><p>Логин:</p> <input disabled type="text" name="login" value={{login}}> </div>
-            <div><p>Почта:</p> <input type="text" name="email" value={{email}}> </div>
-            <div><p>Телефон:</p> <input type="text" name="phone" value={{phone}}> </div>
-            <div><p>Дата рождения:</p> <input type="date" name="birth" value={{birth}}> </div>
-          </div>
-          <div class="button">
-            <button type="submit">Редактировать</button>
-          </div>
-        </div>
-      </form>
-
-      <div class="calendar-form">
-        <table id="calendar">
-          <thead>
-            <tr><td colspan="4"><select>
-              <option value="0">Январь</option>
-              <option value="1">Февраль</option>
-              <option value="2">Март</option>
-              <option value="3">Апрель</option>
-              <option value="4">Май</option>
-              <option value="5">Июнь</option>
-              <option value="6">Июль</option>
-              <option value="7">Август</option>
-              <option value="8">Сентябрь</option>
-              <option value="9">Октябрь</option>
-              <option value="10">Ноябрь</option>
-              <option value="11">Декабрь</option>
-              </select><td colspan="3"><input type="number" value="" min="0" max="9999" size="4">
-              <tr><td>Пн<td>Вт<td>Ср<td>Чт<td>Пт<td>Сб<td>Вс
-            <tbody>
-        </table>
-
+    <h1>Переписка с психологом <span>{{psy}}</span></h1>
+    <div class="container">
+      <span class="output">
         <div>
-          <div id="event"></div>
-          <a href="/profile/reception">Запись на приём</a>
+          <div class="name">Вы:</div>
+          <div  class="message">Привет :)</div>
         </div>
+      </span>
+      <span class="input">
+        <div>
+          <div class="name">{{psy}}:</div>
+          <div  class="message">Приветствую, ты уже записался на консультацию?)</div>
+        </div>
+      </span>
+    </div>
+    <div class="placeSendMessage">
+      <div>
+        <input type="text" placeholder="Введите сообщение">
+        <button>Отправить</button>
       </div>
     </div>
-
   </div>
+  {{> asideProfile}}
 </section>
-
-<script>
-  function clickDate(text) {
-    const date = new Date(text)
-
-    const month = ["января", "февраля", "марта", "апреля", "мая", "июня", "июля", "августа", "сентября", "октября", "ноября", "декабря"]
-
-    document.getElementById("event").innerHTML = `${date.getDate()} ${month[date.getMonth()]} ${date.getFullYear()}` 
-  }
-
-  function calendar(id, year, month) {
-    const dates = JSON.parse(`{{dates}}`.replace(/&quot;/g,'"'))
-
-    var Dlast = new Date(year,month+1,0).getDate(),
-        D = new Date(year,month,Dlast),
-        DNlast = D.getDay(),
-        DNfirst = new Date(D.getFullYear(),D.getMonth(),1).getDay(),
-        calendar = '<tr>',
-        m = document.querySelector('#'+id+' option[value="' + D.getMonth() + '"]'),
-        g = document.querySelector('#'+id+' input');
-    if (DNfirst != 0) {
-      for(var  i = 1; i < DNfirst; i++) calendar += '<td class="no-border">';
-    }else{
-      for(var  i = 0; i < 6; i++) calendar += '<td class="no-border">';
-    }
-    for(var  i = 1; i <= Dlast; i++) {
-      if (i == new Date().getDate() && D.getFullYear() == new Date().getFullYear() && D.getMonth() == new Date().getMonth()) {
-        calendar += `<td class="today" onclick="clickDate('${D.getFullYear()}-${D.getMonth()+1 > 9 ? D.getMonth()+1 : "0"+(D.getMonth()+1)}-${i > 9 ? i : "0"+(i)}')">` + i;
-      }else{
-        let b = false
-
-        for (let date of dates) {
-          const d = new Date(date.date)
-          if (i === d.getDate() && D.getFullYear() === d.getFullYear() && D.getMonth() === d.getMonth()) {
-            calendar += `<td class="cons" onclick="clickDate('${D.getFullYear()}-${D.getMonth()+1 > 9 ? D.getMonth()+1 : "0"+(D.getMonth()+1)}-${i > 9 ? i : "0"+(i)}')">` + i;
-            b = true
-            break
-          }
-        }
-
-        if (!b) {
-          calendar += `<td onclick="clickDate('${D.getFullYear()}-${D.getMonth()+1 > 9 ? D.getMonth()+1 : "0"+(D.getMonth()+1)}-${i > 9 ? i : "0"+(i)}')">` + i;
-        }
-      }
-      if (new Date(D.getFullYear(),D.getMonth(),i).getDay() == 0) {
-        calendar += '<tr>';
-      }
-    }
-    for(var  i = DNlast; i < 7; i++) calendar += '<td class="no-border">&nbsp;';
-    document.querySelector('#'+id+' tbody').innerHTML = calendar;
-    g.value = D.getFullYear();
-    m.selected = true;
-    if (document.querySelectorAll('#'+id+' tbody tr').length < 6) {
-        document.querySelector('#'+id+' tbody').innerHTML += '<tr><td class="no-border">&nbsp;<td class="no-border">&nbsp;<td class="no-border">&nbsp;<td class="no-border">&nbsp;<td class="no-border">&nbsp;<td class="no-border">&nbsp;<td class="no-border">&nbsp;';
-    }
-    document.querySelector('#'+id+' option[value="' + new Date().getMonth() + '"]').style.color = 'rgb(220, 0, 0)'; // в выпадающем списке выделен текущий месяц
-  }
-
-  calendar("calendar",new Date().getFullYear(),new Date().getMonth());
-
-  document.querySelector('#calendar').onchange = function Kalendar() {
-    calendar("calendar",document.querySelector('#calendar input').value,parseFloat(document.querySelector('#calendar select').options[document.querySelector('#calendar select').selectedIndex].value));
-  }
-</script>
