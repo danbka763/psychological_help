@@ -13,6 +13,8 @@ const schema = new Schema({
   psy: {type: String}
 })
 
+
+
 module.exports = model("dataUsers", schema)
 
 // const Pool = require('pg').Pool

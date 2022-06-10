@@ -77,16 +77,21 @@ header>nav ul a {
   color: black;
 }
 
-header>nav ul .button {
+header>nav ul .button, main>section .button {
   cursor: pointer;
   padding: 5px 13px;
   border: 1px solid var(--main-text-color);
   border-radius: 3px;
   background-color: var(--main-text-color);
   color: white;
+  text-decoration: none;
 }
 
-header>nav ul .button:hover {
+main>section .button {
+  margin-top: 25px;
+}
+
+header>nav ul .button:hover, main>section .button:hover {
   background-color: #00000000;
   color: var(--main-text-color);
 }

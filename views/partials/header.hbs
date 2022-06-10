@@ -21,11 +21,17 @@
         {{#if isProfile}}
           <li><a href="/">На главную</a></li>
         {{/if}}
+        {{#if isForm}}
+          <li><a href="/">На главную</a></li>
+        {{/if}}
+        {{#if isSucced}}
+          <li><a href="/">На главную</a></li>
+        {{/if}}
         {{#if isMain}}
-          <li><a href="">Для психологов</a></li>
-          <li><a href="">Сотрудничество</a></li>
+          <li><a href="#s1">Для психологов</a></li>
+          <li><a href="/form">Сотрудничество</a></li>
           <li><a href="#s2">О нас</a></li>
-          <li><a href="#a1">Выбрать специалиста</a></li>
+          <li><a href="/choose_psy">Выбрать специалиста</a></li>
           <li><a class="button" href="/profile">Вход в личный кабинет</a></li>
         {{/if}}
       </ul>
@@ -44,8 +50,14 @@
         {{#if isMess}}
           <li><a href="/profile">Назад</a></li>
         {{/if}}
+        {{#if isForm}}
+          <li><a href="/">На главную</a></li>
+        {{/if}}
+        {{#if isSucced}}
+          <li><a href="/">На главную</a></li>
+        {{/if}}
         {{#if isMain}}
-          <li><a href="#a1">Выбрать специалиста</a></li>
+          <li><a href="/choose_psy">Выбрать специалиста</a></li>
           <li><a class="button" href="/profile">Вход</a></li>
         {{/if}}
       </ul>
@@ -65,6 +77,12 @@
           <li><a href="/profile">Назад</a></li>
         {{/if}}
         {{#if isProfile}}
+          <li><a href="/">На главную</a></li>
+        {{/if}}
+        {{#if isForm}}
+          <li><a href="/">На главную</a></li>
+        {{/if}}
+        {{#if isSucced}}
           <li><a href="/">На главную</a></li>
         {{/if}}
         {{#if isMain}}

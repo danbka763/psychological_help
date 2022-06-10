@@ -16,6 +16,22 @@ router.get("/", (req, res) => {
 })
 
 
+router.get("/form", (req, res) => {
+  res.render('index', {
+    title: "Форма заявки для психологов",
+    isForm: true
+  })
+})
+
+
+router.get("/succed_form", (req, res) => {
+  res.render('index', {
+    title: "Успешная отправка формы",
+    isSucced: true
+  })
+})
+
+
 router.get("/profile", (req, res) => {
   jwt.verify(req.cookies.token, secret, (err, decoded) => {
     if (err) {
@@ -223,12 +239,14 @@ router.post(
 
 
 router.post(
-  '/choose_psy', 
-  [
-    check('login', "Имя пользователя не может быть пустым").notEmpty(),
-    check('pass', "Пароль должен быть больше 4 и меньше 16 символов").isLength({min: 4, max: 16})
-  ], 
+  '/choose_psy',
   authController.choose_psy
+)
+
+
+router.post(
+  '/form',
+  authController.form_psy
 )
 
 
