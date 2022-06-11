@@ -220,20 +220,12 @@ router.post(
 
 router.post(
   '/profile', 
-  [
-    check('login', "Имя пользователя не может быть пустым").notEmpty(),
-    check('pass', "Пароль должен быть больше 4 и меньше 16 символов").isLength({min: 4, max: 16})
-  ], 
   authController.editData
 )
 
 
 router.post(
-  '/profile/reception', 
-  [
-    check('login', "Имя пользователя не может быть пустым").notEmpty(),
-    check('pass', "Пароль должен быть больше 4 и меньше 16 символов").isLength({min: 4, max: 16})
-  ], 
+  '/profile/reception',
   authController.reception
 )
 
